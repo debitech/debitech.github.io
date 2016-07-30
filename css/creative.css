@@ -46,11 +46,11 @@ p {
   background-color: #F05F40;
 }
 .bg-dark {
-  background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/footer_lodyas.png");
+  background: url("/img/footer_lodyas.png");
   color: white;
 }
 .bg-gray {
-  background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/triangular.png");
+  background: url("/img/triangular.png");
   color: white;
 }
 .text-faded {
