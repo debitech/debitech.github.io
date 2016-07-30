@@ -276,10 +276,16 @@
 
         function onWindowResize() {
 
+            $('header').ripples('destroy').ripples({
+                resolution: 24,
+                dropRadius: 20,
+                perturbance: 0.14,
+            });
+
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
 
-            renderer.setSize( window.innerWidth, window.innerHeight );
+            renderer.setSize( window.innerWidth, window.innerHeight+100 );
 
         }
 
@@ -386,7 +392,9 @@
             "We are a unicorn in building",
             "We are a bunch of Fin-Tech veterans",
             "We are some people from Berlin",
-            "We are the last remainig hairs of calliou"
+            "We have disrupted Finance Industry in the past",
+            "We will be disrupting Finance Industry in the future",
+            "Game on!"
         ];
         var phrase_pos = 0;
         function swap_phrase() {
@@ -419,7 +427,8 @@
               perturbance: 0.14,
           });
           swap_phrase();
-          setInterval('swap_phrase()',6000)
+          onWindowResize();
+         // setInterval('swap_phrase()',6000)
 
 
 
