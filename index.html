@@ -75,8 +75,8 @@
             <div class="header-content-inner">
                 <h1 id="homeHeading"> <span id="caption"></span><span id="cursor">|</span></h1>
                 <hr>
-                <p>And, we need you!</p>
-                <a href="#jobs" class="btn btn-primary btn-xl page-scroll">Apply</a>
+                
+                <a href="#jobs" class="btn btn-primary btn-xl page-scroll">Are you a Rockstar?</a>
             </div>
         </div>
 
@@ -150,18 +150,18 @@
         var particlePositions;
         var linesMesh;
 
-        var maxParticleCount = 1000;
-        var particleCount = 500;
+        var maxParticleCount = 350;
+        var particleCount = 300;
         var r = 2000;
         var rHalf = r / 2;
 
         var effectController = {
             showDots: true,
             showLines: true,
-            minDistance: 300,
-            limitConnections: false,
-            maxConnections: 400,
-            particleCount: 1200
+            minDistance: 400,
+            limitConnections: true,
+            maxConnections: 300,
+            particleCount: 300
         };
 
         init();
@@ -428,7 +428,7 @@
           });
           swap_phrase();
           onWindowResize();
-         // setInterval('swap_phrase()',6000)
+          setInterval('swap_phrase()',10000)
 
 
 
@@ -447,7 +447,7 @@
       function type() {
           captionEl.html(caption.substr(0, captionLength++));
           if(captionLength < caption.length+1) {
-              setTimeout('type()', 25);
+              setTimeout('type()', 50);
           } else {
               captionLength = 0;
               caption = '';
@@ -470,7 +470,7 @@
       function erase(deferred) {
           captionEl.html(caption.substr(0, captionLength--));
           if(captionLength >= 0) {
-              setTimeout(erase, 5,deferred);
+              setTimeout(erase, 15,deferred);
           } else {
               captionLength = 0;
               caption = '';
