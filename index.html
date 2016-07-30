@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <link rel="stylesheet" type="text/css" href="less/creative.less"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Blackbill</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/creative.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top">
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <img class="white" height="40" src="img/white.png"/>
+                    <img class="black" height="40" src="img/black.png"/>
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li>
+                        <a class="page-scroll" href="#jobs">Jobs</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <header>
+
+        <div class="pulsate" id="graph"></div>
+
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1 id="homeHeading"> <span id="caption"></span><span id="cursor">|</span></h1>
+                <hr>
+                <p>And, we need you!</p>
+                <a href="#jobs" class="btn btn-primary btn-xl page-scroll">Apply</a>
+            </div>
+        </div>
+
+    </header>
+
+    <section class="bg-dark" id="jobs">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">Be part of our success story!</h2>
+                    <hr>
+                    <div class="list-group text-left">
+                        <a href="#" class="list-group-item">Senior frontend engineer</a>
+                        <a href="#" class="list-group-item">Senior backend engineer</a>
+                        <a href="#" class="list-group-item">Data scientist</a>
+                        <a href="#" class="list-group-item">I have other super skills</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gray" id="contact">
+        <div class="container">
+            </br><hr></br>
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-2 text-center">
+                    <i class="fa fa-home fa-3x sr-contact"></i>
+                    <p><strong>Blackbill Internet GmbH</strong></br>
+                    c/o Mindspace</br>
+                    Friedrichstraße 68</br>
+                    10111 Berlin</br>
+                    Germany</p>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <i class="fa fa-envelope-o fa-3x sr-contact"></i>
+                    <p><a href="mailto:your-email@your-domain.com">contact@blackbill.com</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/jquery.ripples.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/creative.min.js"></script>
+    <script src="js/three.min.js"></script>
+    <script src="js/OrbitControls.js"></script>
+    <script>
+
+
+
+        var group;
+        var container, controls;
+        var particlesData = [];
+        var camera, scene, renderer;
+        var positions, colors;
+        var particles;
+        var pointCloud;
+        var particlePositions;
+        var linesMesh;
+
+        var maxParticleCount = 1000;
+        var particleCount = 500;
+        var r = 2000;
+        var rHalf = r / 2;
+
+        var effectController = {
+            showDots: true,
+            showLines: true,
+            minDistance: 300,
+            limitConnections: false,
+            maxConnections: 400,
+            particleCount: 1200
+        };
+
+        init();
+        animate();
+
+
+
+        function init() {
+
+
+            container = document.getElementById( 'graph' );
+
+            //
+
+            camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 4000 );
+            camera.position.z = 1750;
+
+           // controls = new THREE.OrbitControls( camera, container );
+
+            scene = new THREE.Scene();
+
+
+            group = new THREE.Group();
+            scene.add( group );
+
+
+
+            var segments = maxParticleCount * maxParticleCount;
+
+            positions = new Float32Array( segments * 3 );
+            colors = new Float32Array( segments * 3 );
+
+            var WpMaterial = new THREE.PointsMaterial( {
+                color: 0xFFFFFF,
+                size: 3,
+                blending: THREE.AdditiveBlending,
+                transparent: true,
+                sizeAttenuation: false
+            } );
+
+            var pMaterial=  new THREE.PointsMaterial( {
+                size: 20,
+                transparent: true,
+                color: 0xFFFFFF,
+                blending: THREE.AdditiveBlending
+            } );
+
+            particles = new THREE.BufferGeometry();
+            particlePositions = new Float32Array( maxParticleCount * 3 );
+
+            for ( var i = 0; i < maxParticleCount; i++ ) {
+
+                var x = Math.random() * r - r / 2;
+                var y = Math.random() * r - r / 2;
+                var z = Math.random() * r - r / 2;
+
+                particlePositions[ i * 3     ] = x;
+                particlePositions[ i * 3 + 1 ] = y;
+                particlePositions[ i * 3 + 2 ] = z;
+
+                // add it to the geometry
+                particlesData.push( {
+                    velocity: new THREE.Vector3( -1 + Math.random() * 2, -1 + Math.random() * 2,  -1 + Math.random() * 2 ),
+                    numConnections: 0
+                } );
+
+            }
+
+            particles.setDrawRange( 0, particleCount );
+            particles.addAttribute( 'position', new THREE.BufferAttribute( particlePositions, 3 ).setDynamic( true ) );
+
+            // create the particle system
+            pointCloud = new THREE.Points( particles, pMaterial );
+            group.add( pointCloud );
+
+            var geometry = new THREE.BufferGeometry();
+
+            geometry.addAttribute( 'position', new THREE.BufferAttribute( positions, 3 ).setDynamic( true ) );
+            geometry.addAttribute( 'color', new THREE.BufferAttribute( colors, 3 ).setDynamic( true ) );
+
+            geometry.computeBoundingSphere();
+
+            geometry.setDrawRange( 0, 0 );
+
+            var material = new THREE.LineBasicMaterial( {
+                vertexColors: THREE.VertexColors,
+                blending: THREE.AdditiveBlending,
+                transparent: true
+            } );
+
+            linesMesh = new THREE.LineSegments( geometry, material );
+            group.add( linesMesh );
+
+            //
+
+            renderer = new THREE.WebGLRenderer( { antialias: true , alpha: true } );
+            renderer.setPixelRatio( window.devicePixelRatio );
+            renderer.setSize( window.innerWidth, window.innerHeight );
+
+            renderer.gammaInput = true;
+            renderer.gammaOutput = true;
+
+            container.appendChild( renderer.domElement );
+
+            //
+
+
+
+            window.addEventListener( 'resize', onWindowResize, false );
+
+        }
+
+        function onWindowResize() {
+
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+
+            renderer.setSize( window.innerWidth, window.innerHeight );
+
+        }
+
+        function animate() {
+
+            var vertexpos = 0;
+            var colorpos = 0;
+            var numConnected = 0;
+
+            for ( var i = 0; i < particleCount; i++ )
+                particlesData[ i ].numConnections = 0;
+
+            for ( var i = 0; i < particleCount; i++ ) {
+
+                // get the particle
+                var particleData = particlesData[i];
+
+                particlePositions[ i * 3     ] += particleData.velocity.x;
+                particlePositions[ i * 3 + 1 ] += particleData.velocity.y;
+                particlePositions[ i * 3 + 2 ] += particleData.velocity.z;
+
+                if ( particlePositions[ i * 3 + 1 ] < -rHalf || particlePositions[ i * 3 + 1 ] > rHalf )
+                    particleData.velocity.y = -particleData.velocity.y;
+
+                if ( particlePositions[ i * 3 ] < -rHalf || particlePositions[ i * 3 ] > rHalf )
+                    particleData.velocity.x = -particleData.velocity.x;
+
+                if ( particlePositions[ i * 3 + 2 ] < -rHalf || particlePositions[ i * 3 + 2 ] > rHalf )
+                    particleData.velocity.z = -particleData.velocity.z;
+
+                if ( effectController.limitConnections && particleData.numConnections >= effectController.maxConnections )
+                    continue;
+
+                // Check collision
+                for ( var j = i + 1; j < particleCount; j++ ) {
+
+                    var particleDataB = particlesData[ j ];
+                    if ( effectController.limitConnections && particleDataB.numConnections >= effectController.maxConnections )
+                        continue;
+
+                    var dx = particlePositions[ i * 3     ] - particlePositions[ j * 3     ];
+                    var dy = particlePositions[ i * 3 + 1 ] - particlePositions[ j * 3 + 1 ];
+                    var dz = particlePositions[ i * 3 + 2 ] - particlePositions[ j * 3 + 2 ];
+                    var dist = Math.sqrt( dx * dx + dy * dy + dz * dz );
+
+                    if ( dist < effectController.minDistance ) {
+
+                        particleData.numConnections++;
+                        particleDataB.numConnections++;
+
+                        var alpha = 1.0 - dist / effectController.minDistance;
+
+                        positions[ vertexpos++ ] = particlePositions[ i * 3     ];
+                        positions[ vertexpos++ ] = particlePositions[ i * 3 + 1 ];
+                        positions[ vertexpos++ ] = particlePositions[ i * 3 + 2 ];
+
+                        positions[ vertexpos++ ] = particlePositions[ j * 3     ];
+                        positions[ vertexpos++ ] = particlePositions[ j * 3 + 1 ];
+                        positions[ vertexpos++ ] = particlePositions[ j * 3 + 2 ];
+
+                        colors[ colorpos++ ] = alpha;
+                        colors[ colorpos++ ] = alpha;
+                        colors[ colorpos++ ] = alpha;
+
+                        colors[ colorpos++ ] = alpha;
+                        colors[ colorpos++ ] = alpha;
+                        colors[ colorpos++ ] = alpha;
+
+                        numConnected++;
+                    }
+                }
+            }
+
+
+            linesMesh.geometry.setDrawRange( 0, numConnected * 2 );
+            linesMesh.geometry.attributes.position.needsUpdate = true;
+            linesMesh.geometry.attributes.color.needsUpdate = true;
+
+            pointCloud.geometry.attributes.position.needsUpdate = true;
+
+            requestAnimationFrame( animate );
+
+
+            render();
+
+        }
+
+        function render() {
+
+            var time = Date.now() * 0.001;
+
+            group.rotation.y = time * 0.1;
+            renderer.render( scene, camera );
+
+        }
+
+
+      var captionLength = 0;
+      var caption = '';
+
+
+       // var phrases = ["ab"];
+        var phrases = [
+            "We are an unicorn in building",
+            "We are a bunch of Fin-Tech veterans",
+            "We are some people from berlin",
+            "We are the last remainig hairs of calliou"
+        ];
+        var phrase_pos = 0;
+        function swap_phrase() {
+            var d1 = $.Deferred();
+            $.when(d1).done(function () {
+                phrase_pos %= phrases.length;
+                testTypingEffect(phrases[phrase_pos]);
+                phrase_pos++;
+            })
+            testErasingEffect(d1);
+
+
+        }
+
+      $(document).ready(function() {
+          captionEl = $('#caption');
+          setInterval ('cursorAnimation()', 600);
+          $('header').ripples({
+              resolution: 24,
+              dropRadius: 20,
+              perturbance: 0.14,
+          });
+          swap_phrase();
+          setInterval('swap_phrase()',6000)
+
+
+
+      });
+
+      function testTypingEffect(val) {
+          caption = val
+          type();
+          cursorAnimation();
+          var midH = $(window).scrollTop() + Math.floor($(window).height() / 2);
+          var midW =  Math.floor($(window).width() / 2);
+          $('header').ripples('drop', midW, midH, 80, 0.1)
+
+      }
+
+      function type() {
+          captionEl.html(caption.substr(0, captionLength++));
+          if(captionLength < caption.length+1) {
+              setTimeout('type()', 25);
+          } else {
+              captionLength = 0;
+              caption = '';
+          }
+      }
+
+      function testErasingEffect(deferred) {
+          caption = captionEl.html();
+          captionLength = caption.length;
+          if (captionLength>0) {
+              erase(deferred);
+          }
+          else {
+              deferred.resolve();
+          }
+
+          cursorAnimation();
+      }
+
+      function erase(deferred) {
+          captionEl.html(caption.substr(0, captionLength--));
+          if(captionLength >= 0) {
+              setTimeout(erase, 5,deferred);
+          } else {
+              captionLength = 0;
+              caption = '';
+              deferred.resolve();
+          }
+      }
+
+      function cursorAnimation() {
+          $('#cursor').animate({
+              opacity: 0
+          }, 'fast', 'swing').animate({
+              opacity: 1
+          }, 'fast', 'swing');
+      }
+    </script>
+
+</body>
+
+</html>
