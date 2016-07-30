@@ -51,7 +51,7 @@ p {
 }
 .bg-gray {
   background: url("/img/triangular.png");
-  color: white;
+  color: black;
 }
 .text-faded {
   color: rgba(255, 255, 255, 0.7);
