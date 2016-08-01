@@ -73,10 +73,10 @@
 
         <div class="header-content">
             <div class="header-content-inner">
-                <h1 id="homeHeading"> <span id="caption"></span><span id="cursor">|</span></h1>
+                <h1 class="shadows deepshadow" id="homeHeading"> <span id="caption"></span><span id="cursor">|</span></h1>
                 <hr>
                 
-                <a href="#jobs" class="btn btn-primary btn-xl page-scroll">Are you a Rockstar?</a>
+                <a href="#jobs" class=" shadows btn btn-primary btn-xl page-scroll">Are you a Rockstar?</a>
             </div>
         </div>
 
@@ -86,13 +86,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Be part of our success story!</h2>
+                    <h2 class="section-heading shadows">Be part of our success story!</h2>
                     <hr>
                     <div class="list-group text-left">
-                        <a href="#" class="list-group-item">Senior frontend engineer</a>
-                        <a href="#" class="list-group-item">Senior backend engineer</a>
-                        <a href="#" class="list-group-item">Data scientist</a>
-                        <a href="#" class="list-group-item">I have other super skills</a>
+                        <a href="#" class=" shadows black list-group-item">Senior frontend engineer</a>
+                        <a href="#" class=" shadows black list-group-item">Senior backend engineer</a>
+                        <a href="#" class=" shadows black list-group-item">Data scientist</a>
+                        <a href="#" class=" shadows black list-group-item">I have other super skills</a>
                     </div>
                 </div>
 
@@ -139,7 +139,6 @@
     <script>
 
 
-
         var group;
         var container, controls;
         var particlesData = [];
@@ -150,18 +149,18 @@
         var particlePositions;
         var linesMesh;
 
-        var maxParticleCount = 350;
-        var particleCount = 300;
-        var r = 2000;
+        var maxParticleCount = 100;
+        var particleCount = 50;
+        var r = 300;
         var rHalf = r / 2;
 
         var effectController = {
             showDots: true,
             showLines: true,
-            minDistance: 400,
+            minDistance: 100,
             limitConnections: true,
-            maxConnections: 300,
-            particleCount: 300
+            maxConnections: 200,
+            particleCount: 50
         };
 
         init();
@@ -177,9 +176,9 @@
             //
 
             camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 4000 );
-            camera.position.z = 1750;
+            camera.position.z = 400;
 
-           // controls = new THREE.OrbitControls( camera, container );
+            // controls = new THREE.OrbitControls( camera, container );
 
             scene = new THREE.Scene();
 
@@ -203,7 +202,7 @@
             } );
 
             var pMaterial=  new THREE.PointsMaterial( {
-                size: 20,
+                size: 2,
                 transparent: true,
                 color: 0xFFFFFF,
                 blending: THREE.AdditiveBlending
@@ -276,11 +275,7 @@
 
         function onWindowResize() {
 
-            $('header').ripples('destroy').ripples({
-                resolution: 24,
-                dropRadius: 20,
-                perturbance: 0.14,
-            });
+
 
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
@@ -383,6 +378,8 @@
         }
 
 
+
+
       var captionLength = 0;
       var caption = '';
 
@@ -401,11 +398,18 @@
             var d1 = $.Deferred();
             if(phrase_pos == phrases.length-1){
 
-                $('header').ripples('destroy').ripples({
-                    resolution: 24,
-                    dropRadius: 20,
-                    perturbance: 0.14,
-                });
+
+                try {
+                    $('header').ripples('destroy').ripples({
+                        resolution: 24,
+                        dropRadius: 20,
+                        perturbance: 0.14,
+                    });
+                }
+                catch(err){
+                    console.log(":(")
+
+                }
 
             }
             $.when(d1).done(function () {
@@ -421,13 +425,19 @@
       $(document).ready(function() {
           captionEl = $('#caption');
           setInterval ('cursorAnimation()', 600);
-          $('header').ripples({
-              resolution: 24,
-              dropRadius: 20,
-              perturbance: 0.14,
-          });
+          try {
+              $('header').ripples({
+                  resolution: 24,
+                  dropRadius: 20,
+                  perturbance: 0.14,
+              });
+          }
+          catch(err){
+              console.log(":(")
+
+          }
           swap_phrase();
-          onWindowResize();
+
           setInterval('swap_phrase()',10000)
 
 
@@ -440,7 +450,14 @@
           cursorAnimation();
           var midH = $(window).scrollTop() + Math.floor($(window).height() / 2);
           var midW =  Math.floor($(window).width() / 2);
-          $('header').ripples('drop', midW, midH, 80, 0.1)
+          try {
+              $('header').ripples('drop', midW, midH, 80, 0.1)
+          }
+          catch(err){
+              console.log(":(")
+
+          }
+
 
       }
 
