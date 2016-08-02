@@ -53,6 +53,18 @@ p {
   background: url("/img/triangular.png");
   color: black;
 }
+.bg-neutral {
+  background: url("/img/triangular.png");
+  color: black;
+}
+.round_shadow_inset {
+  background: url("/img/triangular.png");
+  -webkit-box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.75);
+  border-radius: 1px;
+  padding: 20px;
+}
 .text-faded {
   color: rgba(255, 255, 255, 0.7);
 }
@@ -488,4 +500,11 @@ div#graph {
 .shadows.black {
   color: rgba(0, 0, 0, 0.6);
   text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.2), 0px -5px 35px rgba(255, 255, 255, 0.3);
+}
+.plainPanel {
+  border-radius: 0 !important;
+  -webkit-box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.75);
+  color: #000000;
 }
