@@ -362,7 +362,7 @@ $(document).ready(function() {
     }
     swap_phrase();
 
-    setInterval('swap_phrase()',10000)
+    setInterval('swap_phrase()',5000)
 
 
 
